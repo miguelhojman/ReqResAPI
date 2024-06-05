@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "9a9c96fb-638b-4efa-85b1-ab78c0d9c550",
 		"name": "ReqRes API Collection",
+		"description": "Haciendo Testing de la API ReqRes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29548867"
 	},
@@ -386,7 +387,8 @@
 							"});\r",
 							"pm.test(\"Status Code is 'OK'\", function () {\r",
 							"     pm.response.to.have.status(\"OK\");\r",
-							"});"
+							"});\r",
+							"//Comentario agregado "
 						],
 						"type": "text/javascript",
 						"packages": {}
