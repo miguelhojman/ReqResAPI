@@ -1,0 +1,463 @@
+{
+	"info": {
+		"_postman_id": "9a9c96fb-638b-4efa-85b1-ab78c0d9c550",
+		"name": "ReqRes API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29548867"
+	},
+	"item": [
+		{
+			"name": "https://reqres.in/api/users?page=2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"     pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status Code is 'OK'\", function () {\r",
+							"     pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"  pm.expect(jsonData.page).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.per_page).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.total).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.total_pages).to.be.a(\"number\");\r",
+							"  pm.expect(jsonData.data).to.be.an(\"array\");\r",
+							"  pm.expect(jsonData.support).to.be.an(\"object\");\r",
+							"});\r",
+							"pm.test(\"Verificar los valores de las keys\",()=>{\r",
+							"     pm.expect(jsonData.page).to.eql(2);\r",
+							"     pm.expect(jsonData.total).to.eql(12);\r",
+							"     pm.expect(jsonData.total_pages).to.eql(2);\r",
+							"});\r",
+							"const schema = {\r",
+							"  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"page\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"per_page\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"total\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"total_pages\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"data\": {\r",
+							"      \"type\": \"array\",\r",
+							"      \"items\": [\r",
+							"        {\r",
+							"          \"type\": \"object\",\r",
+							"          \"properties\": {\r",
+							"            \"id\": {\r",
+							"              \"type\": \"integer\"\r",
+							"            },\r",
+							"            \"email\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"first_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"last_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"avatar\": {\r",
+							"              \"type\": \"string\"\r",
+							"            }\r",
+							"          },\r",
+							"          \"required\": [\r",
+							"            \"id\",\r",
+							"            \"email\",\r",
+							"            \"first_name\",\r",
+							"            \"last_name\",\r",
+							"            \"avatar\"\r",
+							"          ]\r",
+							"        },\r",
+							"        {\r",
+							"          \"type\": \"object\",\r",
+							"          \"properties\": {\r",
+							"            \"id\": {\r",
+							"              \"type\": \"integer\"\r",
+							"            },\r",
+							"            \"email\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"first_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"last_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"avatar\": {\r",
+							"              \"type\": \"string\"\r",
+							"            }\r",
+							"          },\r",
+							"          \"required\": [\r",
+							"            \"id\",\r",
+							"            \"email\",\r",
+							"            \"first_name\",\r",
+							"            \"last_name\",\r",
+							"            \"avatar\"\r",
+							"          ]\r",
+							"        },\r",
+							"        {\r",
+							"          \"type\": \"object\",\r",
+							"          \"properties\": {\r",
+							"            \"id\": {\r",
+							"              \"type\": \"integer\"\r",
+							"            },\r",
+							"            \"email\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"first_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"last_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"avatar\": {\r",
+							"              \"type\": \"string\"\r",
+							"            }\r",
+							"          },\r",
+							"          \"required\": [\r",
+							"            \"id\",\r",
+							"            \"email\",\r",
+							"            \"first_name\",\r",
+							"            \"last_name\",\r",
+							"            \"avatar\"\r",
+							"          ]\r",
+							"        },\r",
+							"        {\r",
+							"          \"type\": \"object\",\r",
+							"          \"properties\": {\r",
+							"            \"id\": {\r",
+							"              \"type\": \"integer\"\r",
+							"            },\r",
+							"            \"email\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"first_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"last_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"avatar\": {\r",
+							"              \"type\": \"string\"\r",
+							"            }\r",
+							"          },\r",
+							"          \"required\": [\r",
+							"            \"id\",\r",
+							"            \"email\",\r",
+							"            \"first_name\",\r",
+							"            \"last_name\",\r",
+							"            \"avatar\"\r",
+							"          ]\r",
+							"        },\r",
+							"        {\r",
+							"          \"type\": \"object\",\r",
+							"          \"properties\": {\r",
+							"            \"id\": {\r",
+							"              \"type\": \"integer\"\r",
+							"            },\r",
+							"            \"email\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"first_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"last_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"avatar\": {\r",
+							"              \"type\": \"string\"\r",
+							"            }\r",
+							"          },\r",
+							"          \"required\": [\r",
+							"            \"id\",\r",
+							"            \"email\",\r",
+							"            \"first_name\",\r",
+							"            \"last_name\",\r",
+							"            \"avatar\"\r",
+							"          ]\r",
+							"        },\r",
+							"        {\r",
+							"          \"type\": \"object\",\r",
+							"          \"properties\": {\r",
+							"            \"id\": {\r",
+							"              \"type\": \"integer\"\r",
+							"            },\r",
+							"            \"email\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"first_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"last_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"avatar\": {\r",
+							"              \"type\": \"string\"\r",
+							"            }\r",
+							"          },\r",
+							"          \"required\": [\r",
+							"            \"id\",\r",
+							"            \"email\",\r",
+							"            \"first_name\",\r",
+							"            \"last_name\",\r",
+							"            \"avatar\"\r",
+							"          ]\r",
+							"        }\r",
+							"      ]\r",
+							"    },\r",
+							"    \"support\": {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"url\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"text\": {\r",
+							"          \"type\": \"string\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"url\",\r",
+							"        \"text\"\r",
+							"      ]\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"page\",\r",
+							"    \"per_page\",\r",
+							"    \"total\",\r",
+							"    \"total_pages\",\r",
+							"    \"data\",\r",
+							"    \"support\"\r",
+							"  ]\r",
+							"};\r",
+							"pm.test('Schema is valid',()=> {\r",
+							"     pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+							"});",
+							"var template = `",
+							"<style type=\"text/css\">",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+							"    .tftable tr {background-color:#ffffff;}",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+							"    .tftable tr:hover {background-color:#e0ffff;}",
+							"</style>",
+							"",
+							"<table class=\"tftable\" border=\"1\">",
+							"    <tr>",
+							"        <th>ID</th>",
+							"        <th>Email</th>",
+							"        <th>First Name</th>",
+							"        <th>Last Name</th>",
+							"        <th>Avatar</th>",
+							"    </tr>",
+							"    ",
+							"    {{#each response.data}}",
+							"        <tr>",
+							"            <td>{{id}}</td>",
+							"            <td>{{email}}</td>",
+							"            <td>{{first_name}}</td>",
+							"            <td>{{last_name}}</td>",
+							"            <td>{{avatar}}</td>",
+							"        </tr>",
+							"    {{/each}}",
+							"</table>",
+							"`;",
+							"",
+							"function constructVisualizerPayload() {",
+							"    return {response: pm.response.json()}",
+							"}",
+							"",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const arr1=[1,2,3,4,5];\r",
+							"const arr2=arr1.map((num)=>(num*2));\r",
+							"console.log(arr2);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://reqres.in/api/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is Created\", function () {\r",
+							"     pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"     pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Se encuentra el header Content-Type\",()=>{\r",
+							"     pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Value of Content-Type\",()=>{\r",
+							"     pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pavan\",\r\n    \"job\": \"Artist\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://reqres.in/api/users/204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"     pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status Code is 'OK'\", function () {\r",
+							"     pm.response.to.have.status(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"pavan\",\r\n    \"job\": \"police\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/243",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"243"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://reqres.in/api/users/204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"     pm.response.to.have.status(204);\r",
+							"});\r",
+							"pm.test(\"Status Code is 'No Content'\", function () {\r",
+							"     pm.response.to.have.status(\"No Content\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/243",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"243"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
